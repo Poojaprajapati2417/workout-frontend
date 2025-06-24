@@ -72,3 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # workout-frontend
  6916326cf0708919297c6b8143175286f3e2cf9c
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
