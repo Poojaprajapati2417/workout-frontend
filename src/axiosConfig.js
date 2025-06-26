@@ -3,8 +3,11 @@ import axios from "axios";
 
 // Axios instance
 const instance = axios.create({
-  baseURL: "/", // ✅ backend ka base URL
+  baseURL: "https://workout-backend-1-rb2d.onrender.com",
+  withCredentials: true,
 });
+
+console.log("✅ Axios instance created with baseURL:", process.env.REACT_APP_API_BASE_URL);
 
 // Request Interceptor
 instance.interceptors.request.use((config) => {
@@ -16,6 +19,8 @@ instance.interceptors.request.use((config) => {
       config.headers.Authorization = `Bearer ${user.token}`;
     }
   }
+  console.log("👉 Axios Request URL:", config.baseURL + config.url);  // 🧠 Check this in browser console
+
   return config;
 });
 

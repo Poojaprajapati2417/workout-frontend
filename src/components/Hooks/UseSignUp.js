@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthContext } from "./useAuthContext.js"
 import Swal from 'sweetalert2'
-import axios from "axios"
+import axios from "../../axiosConfig.js"
 
 
 

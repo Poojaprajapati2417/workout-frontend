@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthContext } from "./useAuthContext.js"
 import Swal from 'sweetalert2'
-import axios from "axios"
+import axios from "../../axiosConfig.js"
 
 
 
@@ -12,12 +12,14 @@ const useLogin = () => {
   const { dispatch } = useAuthContext()
 
   const Login = async (formvalue) => {
+      console.log("🚀 Login fn started");
+
     setLoading(true)
     setError(null)
 
     try {
       const response = await axios.post("/user/login", formvalue)
-
+    console.log("✅ Login API response:", response);
       console.log(response.data)
       if (response.data.Status !== "success") {
         setLoading(false)
@@ -36,7 +38,7 @@ const useLogin = () => {
           draggable: true
         });
         // store user in localstorage for token
-        localStorage.setItem("user",  JSON.stringify(response.data.user))
+        localStorage.setItem("user", JSON.stringify(response.data.user))
         console.log(response.data.user)
         // update dispatch function useauthcontext with new user data to update context
         dispatch({ type: "login", payload: response.data.user })
@@ -46,6 +48,8 @@ const useLogin = () => {
 
 
     catch (error) {
+          console.log("❌ Login API error:", error);
+
       setLoading(false);
       setError(error.message);
       Swal.fire({
