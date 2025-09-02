@@ -24,12 +24,12 @@ case "DELETE_WORKOUT":
 }
 export const WorkoutContextProvider = ({ children }) => {
 const [state,dispatch]=useReducer(workoutsReducer,{
-    workouts:null
+    workouts:[]
 })
 
 
     return (
-        <workoutsContext.Provider value={({...state,dispatch})}>
+        <workoutsContext.Provider value={{...state,dispatch}}>
             {children}
         </workoutsContext.Provider>
     )

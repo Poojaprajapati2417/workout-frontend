@@ -6,15 +6,19 @@ import UseLogout from '../Hooks/UseLogout.js'
 import { FiLogOut } from "react-icons/fi";
 import { useAuthContext } from '../Hooks/useAuthContext.js'
 import { FaDumbbell } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-
+const navigate=useNavigate()
   const { logout } = UseLogout()
   const { user } = useAuthContext()
 
 
   const handleLogout = () => {
     logout()
+    if(!user){
+      navigate("/")
+    }
   }
   console.log(user)
 
@@ -42,13 +46,14 @@ const Navbar = () => {
           {user &&
             (<div style={{margin:"auto"}}>
 
-              <button className="logout-button" onClick={handleLogout}><FiLogOut /></button>
+              <button className="logout-button"   onClick={handleLogout}><FiLogOut /></button>
 
             </div>)}
           {!user &&
             (<div className='header-right'>
               <Link className='login' to="/login">Login</Link>
               <Link className="signup" to="/signup">Signup</Link>
+              <Link className='hero-text' to="/contact"> <button>connect</button></Link>
             </div>)}
         </div>
       </div>

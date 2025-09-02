@@ -21,8 +21,12 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         const userString = localStorage.getItem("user");
         if (userString) {
-            const user = JSON.parse(userString); // ✅ Parse string into object
-            dispatch({ type: "login", payload: user });
+            try {
+                const user = JSON.parse(userString);
+                dispatch({ type: "login", payload: user }); // user object with token
+            } catch (error) {
+                console.error("Error parsing user from localStorage:", error);
+            }
         }
     }, [])
     console.log("Authcontext state:", state)

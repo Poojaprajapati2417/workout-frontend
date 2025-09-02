@@ -9,6 +9,8 @@ import Signup from "./pages/Signup.jsx";
 import { useAuthContext } from "./components/Hooks/useAuthContext.js";
 import Workoutform from "./components/workoutform/Workoutform.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
+import Footer from "../src/components/Footer.jsx"
+import Contact from "../src/components/Contact.jsx"
 function App() {
   const { user } = useAuthContext()
   return (
@@ -23,10 +25,12 @@ function App() {
           <Route path="/signup" element={!user?<Signup /> :<Home/>} />
           <Route path="/form" element={<Workoutform />} />
           <Route path="/" element={!user?<LandingPage /> :<Home/>}/>
+          <Route path="/contact" element={<Contact /> } />
 
         </Routes>
 
       </div>
+      <Footer/>
 
     </div>
   );

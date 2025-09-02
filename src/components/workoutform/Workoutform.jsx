@@ -36,7 +36,7 @@ const Workoutform = () => {
     try {
       console.log("User before submit:", user);
 
-      const submitresponse = await axios.post("/workouts/", formdata)
+      const submitresponse = await axios.post("workouts/", formdata)
       console.log(submitresponse.data)
       if (submitresponse.data.status === "success") {
         console.log(" Workout added")
@@ -50,8 +50,8 @@ const Workoutform = () => {
         dispatch({ type: "CREATE_WORKOUTS", payload: submitresponse.data.workout })
         navigate("/")
         Swal.fire({
-          title: "Great!!" ,
-            text: "You are one step closer to your fitness! ",
+          title: "Great!!",
+          text: "You are one step closer to your fitness! ",
 
           icon: "success",
           draggable: true

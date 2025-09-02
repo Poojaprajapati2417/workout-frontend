@@ -17,8 +17,7 @@ const Home = () => {
     useEffect(() => {
         const fetchworkout = async () => {
             try {
-                const response = await axios.get("/workouts/")
-                console.log(response.data)
+                const response = await axios.get("/workouts"); console.log(response.data)
                 if (response.data) {
                     dispatch({ type: "SET_WORKOUTS", payload: response.data })
                 }
@@ -41,6 +40,7 @@ const Home = () => {
 
                 ))}
             </div>
+            <p>Strong today, stronger tomorrow. Log it. Own it. 💪🔥</p>
             <button className='button'><Link className="add-button" to="/form">Add more Workouts</Link></button>
         </div>
     )
