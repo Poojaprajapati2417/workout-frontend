@@ -23,7 +23,7 @@ const LandingPage = () => {
                                 <GiBiceps className="hero-icon" />
                                 <span>Your Fitness Journey Starts Here</span>
                             </div>
-                            <h1>Welcome to <span className="brand-highlight">Workout Buddy</span></h1>
+                            <h1> <span className="brand-highlight">Workout Buddy</span></h1>
                             <p className="hero-description">
                                 Track your workouts, monitor progress, and stay motivated. 
                                 Your personal fitness companion for achieving your goals.
