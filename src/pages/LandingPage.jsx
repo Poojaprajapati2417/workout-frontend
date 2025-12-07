@@ -21,7 +21,7 @@ const LandingPage = () => {
                         <div className="hero-text">
                             <div className="hero-badge">
                                 <GiBiceps className="hero-icon" />
-                                <span>Your  Journey Starts Here</span>
+                                <span>Your Fitness Journey Starts Here</span>
                             </div>
                             <h1> <span className="brand-highlight">Workout Buddy</span></h1>
                             <p className="hero-description">
